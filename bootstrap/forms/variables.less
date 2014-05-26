@@ -1,0 +1,43 @@
+//////////////////
+// Input Colors //
+//////////////////
+
+@formFontFamily:            @fontFamily;
+@formMargin:                0 0 @baseLineHeight;
+
+@labelMarginBottom:         5px;
+
+@inputDisplay:              inline-block;
+@inputHeight:               unit((((@inputLineHeight * 10) - (@inputBorderWidth * 2)) + (@inputPaddingTop + @inputPaddingBottom)), ~"px");
+@inputBackground:           @white;
+@inputTextColor:            @gray;
+@inputFontSize:             @fontSize;
+@inputLineHeight:           @lineHeight;
+@inputPaddingTop:           4px;
+@inputPaddingRight:         6px;
+@inputPaddingBottom:        4px;
+@inputPaddingLeft:          6px;
+@inputBorderColor:          @grayLighter;
+@inputBorderWidth:          1px;
+@inputBorderRadius:         @baseBorderRadius;
+@inputBoxShadow:            inset 0 1px 1px rgba(0,0,0,.075);
+@inputTransition:           ~"border linear .2s, box-shadow linear .2s";
+
+@inputFocusBorderColor:     @blue;
+@inputFocusBoxShadow1:      fadeout(@black, 75%);
+@inputFocusBoxShadow2:      fadeout(@blue, 40%);
+@inputFocusBoxShadow:       ~"inset 0 1px 1px @{inputFocusBoxShadow1}, 0 0 8px @{inputFocusBoxShadow2}";
+
+@inputDisabledBackground:   darken(@inputBackground, 5%);
+
+//////////////////
+// Input Widths //
+//////////////////
+
+@inputMiniWidth:            60px;
+@inputsmallWidth:           90px;
+@inputmediumWidth:          150px;
+@inputlargeWidth:           200px;
+@inputxlargeWidth:          360px;
+@inputxxlargeWidth:         425px;
+@inputxxxlargeWidth:        530px;

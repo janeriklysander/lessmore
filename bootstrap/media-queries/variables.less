@@ -1,0 +1,35 @@
+///////////////////
+// Media queries //
+///////////////////
+
+@desktop:                   ~"only screen and (min-width: 1025px)";
+
+// All tablet sizes
+@tablets:                   @tablet,
+                            @tabletMini;
+@tabletsLandscape:          @tabletLandscape,
+                            @tabletMiniLandscape;
+@tabletsPortrait:           @tabletPortrait,
+                            @tabletMiniPortrait;
+
+// Normal size tablet
+@tablet:                    ~"only screen and (min-width : 768px) and (max-width : 1024px)";
+@tabletLandscape:           ~"only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape)";
+@tabletPortrait:            ~"only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait)";
+
+// Small size tablet
+@tabletMini:                ~"only screen and (min-width : 481px) and (max-width : 767px)";
+@tabletMiniLandscape:       ~"only screen and (min-width : 481px) and (max-width : 767px) and (orientation : landscape)";
+@tabletMiniPortrait:        ~"only screen and (min-width : 481px) and (max-width : 767px) and (orientation : portrait)";
+
+//Mobile size
+@mobile:                    ~"only screen and (max-width : 480px)";
+@mobileLandscape:           ~"only screen and (max-width : 480px) and (orientation : landscape)";
+@mobilePortrait:            ~"only screen and (max-width : 480px) and (orientation : portrait)";
+
+// High density query with retina alias
+@highdensity:               ~"only screen and (-webkit-min-pixel-ratio: 1.5)",
+                            ~"only screen and (min--moz-pixel-ratio: 1.5)",
+                            ~"only screen and (-o-min-pixel-ratio: 3/2)",
+                            ~"only screen and (min-pixel-ratio: 1.5)";
+@retina:                    @highdensity;

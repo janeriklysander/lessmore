@@ -1,0 +1,102 @@
+//////////////////////
+// Button variables //
+//////////////////////
+
+@buttonDisplay:             inline-block;
+@buttonHeight:              unit((@buttonLineHeight * 10), ~"px");
+@buttonCursor:              pointer;
+
+@buttonFontSize:            @fontSize;
+@buttonLineHeight:          @lineHeight;
+@buttonTextAlign:           center;
+@buttonVerticalAlign:       middle;
+@buttonTextDecoration:      none;
+@buttonTextTransform:       none;
+@buttonFontWeight:          normal;
+
+@buttonBackground:          @black;
+@buttonGradientStart:       @buttonBackground;
+@buttonGradientEnd:         lighten(@buttonBackground, 15%);
+@buttonTextColor:           @grayLighter;
+@buttonBorderColor:         @black @black lighten(@black, 10%) @black;
+@buttonBorderStyle:                 solid;
+@buttonBorderWidth:                 1px;
+
+@buttonPadding:             4px 12px;
+@buttonMargin:              0;
+@buttonBorderRadius:        @baseBorderRadius;
+@buttonBoxShadow:           ~"inset 0 1px 0 rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.2)";
+
+@buttonHoverBackground:     @buttonBackground;
+@buttonHoverGradientStart:  lighten(@buttonBackground, 15%);
+@buttonHoverGradientEnd:    @buttonBackground;
+@buttonHoverTextColor:      darken(@buttonTextColor, 10%);
+@buttonHoverBoxShadow:      ~"inset 0 -1px 0 rgba(255,255,255,.3)";
+
+@buttonActiveBoxShadow:     ~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)";
+
+
+////////////////////////////
+// Primary button styling //
+////////////////////////////
+
+@buttonPrimaryHeight:              unit((@buttonPrimaryLineHeight * 10), ~"px");
+
+@buttonPrimaryFontSize:            @buttonFontSize;
+@buttonPrimaryLineHeight:          @buttonLineHeight;
+@buttonPrimaryTextDecoration:      none;
+@buttonPrimaryTextTransform:       none;
+
+@buttonPrimaryBackground:          @primaryColor;
+@buttonPrimaryGradientStart:       @buttonPrimaryBackground;
+@buttonPrimaryGradientEnd:         lighten(@buttonPrimaryBackground, 15%);
+@buttonPrimaryTextColor:           @grayLighter;
+@buttonPrimaryBorderColor:         @black @black lighten(@black, 10%) @black;
+@buttonPrimaryBorderStyle:         solid;
+@buttonPrimaryBorderWidth:         1px;
+
+@buttonPrimaryPadding:             6px 16px;
+@buttonPrimaryMargin:              @buttonMargin;
+@buttonPrimaryBorderRadius:        @baseBorderRadius;
+@buttonPrimaryBoxShadow:           ~"inset 0 1px 0 rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.2)";
+
+@buttonPrimaryHoverBackground:     @buttonPrimaryBackground;
+@buttonPrimaryHoverGradientStart:  lighten(@buttonPrimaryBackground, 15%);
+@buttonPrimaryHoverGradientEnd:    @buttonPrimaryBackground;
+@buttonPrimaryHoverTextColor:      darken(@buttonPrimaryTextColor, 10%);
+@buttonPrimaryHoverBoxShadow:      ~"inset 0 -1px 0 rgba(255,255,255,.3)";
+
+@buttonPrimaryActiveBoxShadow:     ~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)";
+
+
+//////////////////////////////
+// Secondary button styling //
+//////////////////////////////
+
+@buttonSecondaryHeight:              unit((@buttonSecondaryLineHeight * 10), ~"px");
+
+@buttonSecondaryFontSize:            @buttonFontSize;
+@buttonSecondaryLineHeight:          @buttonLineHeight;
+@buttonSecondaryTextDecoration:      none;
+@buttonSecondaryTextTransform:       none;
+
+@buttonSecondaryBackground:          @gray;
+@buttonSecondaryGradientStart:       @buttonSecondaryBackground;
+@buttonSecondaryGradientEnd:         lighten(@buttonSecondaryBackground, 15%);
+@buttonSecondaryTextColor:           @white;
+@buttonSecondaryBorderColor:         @black @black lighten(@black, 10%) @black;
+@buttonSecondaryBorderStyle:         solid;
+@buttonSecondaryBorderWidth:         1px;
+
+@buttonSecondaryPadding:             @buttonPadding;
+@buttonSecondaryMargin:              @buttonMargin;
+@buttonSecondaryBorderRadius:        @baseBorderRadius;
+@buttonSecondaryBoxShadow:           ~"inset 0 1px 0 rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.2)";
+
+@buttonSecondaryHoverBackground:     @buttonSecondaryBackground;
+@buttonSecondaryHoverGradientStart:  lighten(@buttonSecondaryBackground, 15%);
+@buttonSecondaryHoverGradientEnd:    @buttonSecondaryBackground;
+@buttonSecondaryHoverTextColor:      darken(@buttonSecondaryTextColor, 10%);
+@buttonSecondaryHoverBoxShadow:      ~"inset 0 -1px 0 rgba(255,255,255,.3)";
+
+@buttonSecondaryActiveBoxShadow:     ~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)";

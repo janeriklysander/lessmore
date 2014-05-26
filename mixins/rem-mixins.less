@@ -1,0 +1,44 @@
+/////////////////////////////////////////////////////////////
+// Font size mixin for use with html, body font-size 62.5% //
+/////////////////////////////////////////////////////////////
+
+.font-size (@size: 1) when (isnumber(@size)) {
+    @remValue: @size;
+    @pxValue: (@size * 10);
+    font-size: ~"@{pxValue}px"; 
+    font-size: ~"@{remValue}rem";
+}
+
+.font-size (@size: 1) when (iskeyword(@size)) {
+    font-size: @size;
+}
+
+///////////////////////////////////////////////////////////////
+// Line height mixin for use with html, body font-size 62.5% //
+///////////////////////////////////////////////////////////////
+
+.line-height (@size: 1) when (isnumber(@size)) {
+    @remValue: @size;
+    @pxValue: (@size * 10);
+    line-height: ~"@{pxValue}px"; 
+    line-height: ~"@{remValue}rem";
+}
+
+.line-height (@size: 1) when (iskeyword(@size)) {
+    line-height: @size;
+}
+
+//////////////////////////////////////////////////////////////////
+// Letter spacing mixin for use with html, body font-size 62.5% //
+//////////////////////////////////////////////////////////////////
+
+.letter-spacing (@size: 1) when (isnumber(@size)){
+    @remValue: @size;
+    @pxValue: (@size * 10);
+    letter-spacing: ~"@{pxValue}px"; 
+    letter-spacing: ~"@{remValue}rem";
+}
+
+.letter-spacing (@size: 1) when (iskeyword(@size)){
+    letter-spacing: @size;
+}

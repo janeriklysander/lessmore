@@ -1,0 +1,65 @@
+////////////
+// Alerts //
+////////////
+
+.alert, .errorMessage {
+    background-color: @warningBackground;
+    color: @warningColor;
+    text-shadow: @alertTextShadow;
+    padding: @alertPadding;
+    border-color: @warningBorderColor;
+    border-style: @warningBorderStyle;
+    border-style: @warningBorderWidth;
+    .border-radius(@alertBorderRadius);
+    margin-bottom: @alertLineHeight;
+    
+    // Adjust close link position
+    .close {
+        position: relative;
+        top: @alertCloseTop;
+        right: @alertCloseRight;
+        line-height: @alertLineHeight;
+    }
+
+    h1 {
+        // Specified for the h1 to prevent conflicts of changing @headingsColor
+        color: @warningColor;
+        margin: @alertHeaderMargin;
+    }
+    
+    // Alternate styles
+    &.success {
+        background-color: @successBackground;
+        color: @successColor;
+        border-color: @successBorderColor;
+        border-style: @successBorderStyle;
+        border-style: @successBorderWidth;
+
+        h1 {
+            color: @successColor;
+        }
+    }
+    &.danger,
+    &.error {
+        background-color: @errorBackground;
+        color: @errorColor;
+        border-color: @errorBorderColor;
+        border-style: @errorBorderStyle;
+        border-style: @errorBorderWidth;
+
+        h1 {
+            color: @errorColor;
+        }
+    }
+    &.info {
+        background-color: @infoBackground;
+        color: @infoColor;
+        border-color: @infoBorderColor;
+        border-style: @infoBorderStyle;
+        border-style: @infoBorderWidth;
+
+        h1 {
+            color: @infoColor;
+        }
+    }
+}

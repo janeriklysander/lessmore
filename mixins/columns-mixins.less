@@ -1,0 +1,81 @@
+////////////////////
+// Old span mixin //
+////////////////////
+
+.span-width (@columns, @gutter, @paddring, @maxColumns) {
+    @one_col: (100% - (@gutter * (@maxColumns - 1))) / @maxColumns;
+    width:((@one_col * @columns) + (@gutter * (@columns - 1)));
+    padding:@paddring;
+    margin-left:@gutter;
+}
+
+////////////////////////////////////////////////////////////
+// Columns mixin, @columns is the only required parameter //
+////////////////////////////////////////////////////////////
+
+.columns (@columns: 12, @gutter: 0, @padding: 0, @row: ~".row") {
+    @columnCount: @columns;
+
+    @nthColumn: (@columns + 1);
+    @nthSelector: ~":nth-child(@{columns}n+@{nthColumn})";
+
+    // Row declaration, sleector can be changed by inputtning the fourth paramter @rowSelector
+    @{row} {
+        // Extend .clearfix to fix float issues
+        &:extend(.clearfix all);
+        // Common styling for columns
+        > .col {
+            float: left;
+            padding: @padding;
+            margin-left: @gutter;
+            margin-top: @gutter;
+            .box-sizing();
+            .background-clip(padding-box);
+            // Remove gutter from first and nth column
+            &:first-child,
+            &@{nthSelector} {
+                margin-left: 0;
+            }
+        }
+        
+        // Span-mixin that prints the right amount of spans (@columns)
+        .span-mixin (@columns, @gutter, @padding, @columnCount) when (@columns > 0) {
+            @class: ~".span-@{columns}";
+            @aliasClass: ~".span@{columns}";
+
+            > @{class},
+            > @{aliasClass} { 
+                .span(@columns, @gutter, @padding, @columnCount); 
+            }
+
+            // Recursive call for next column/span
+            .span-mixin((@columns - 1), @gutter, @padding, @columnCount);
+        }
+        
+        // Span when not 100%
+        .span (@columns, @gutter, @padding, @columnCount) when (@columns < @columnCount) {
+            @spansPosible: floor((@columnCount / @columns));
+            @firstRowSelector: ~":nth-child(-n+@{spansPosible})";
+
+            @one_col: ((100% - (@gutter * (@columnCount - 1))) / @columnCount);
+            width:((@one_col * @columns) + (@gutter * (@columns - 1)));
+            margin-left:@gutter;
+
+            &@{firstRowSelector} {
+                margin-top: 0;
+            }
+        }
+
+        // Span when 100%
+        .span (@columns, @gutter, @padding, @columnCount) when (@columns = @columnCount) {
+            width: 100%;
+            margin-left: 0;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .span-mixin(@columns, @gutter, @padding, @columnCount);
+
+    }
+}
