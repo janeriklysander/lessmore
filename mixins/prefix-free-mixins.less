@@ -81,6 +81,12 @@
     transform: @arguments;
 }
 
+.transform-style (...) {
+    -moz-transform-style:       @arguments;
+    -webkit-transform-style:    @arguments;
+    transform-style:            @arguments;
+}
+
 .animation (...) {
     -webkit-animation: @arguments;
     -moz-animation:    @arguments;
@@ -89,6 +95,12 @@
 
 .rotation (@deg:5deg){
     .transform(rotate(@deg));
+}
+
+.perspective (...) {
+    -moz-perspective:       @arguments;
+    -webkit-perspective:    @arguments;
+    perspective:            @arguments;
 }
 
 .scale (@ratio:1.5){
