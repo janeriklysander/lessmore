@@ -27,9 +27,10 @@
 @mobileLandscape:           ~"only screen and (max-width : 480px) and (orientation : landscape)";
 @mobilePortrait:            ~"only screen and (max-width : 480px) and (orientation : portrait)";
 
-// High density query with retina alias
+// High density query with retina & hd aliases
 @highdensity:               ~"only screen and (-webkit-min-pixel-ratio: 1.5)",
                             ~"only screen and (min--moz-pixel-ratio: 1.5)",
                             ~"only screen and (-o-min-pixel-ratio: 3/2)",
                             ~"only screen and (min-pixel-ratio: 1.5)";
 @retina:                    @highdensity;
+@hd:                        @highdensity;
