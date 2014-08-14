@@ -2,24 +2,24 @@
 .btn {
     display: @buttonDisplay;
     height: @buttonHeight;
-    padding: @buttonPadding;
-    margin-bottom: @buttonMargin;
+    .gradient(@buttonBackground, @buttonGradientStart, @buttonGradientEnd);
+    cursor: @buttonCursor;
+    color: @buttonTextColor;
     .font-size(@buttonFontSize);
     .line-height(@buttonLineHeight);
     text-align: @buttonTextAlign;
+    text-decoration: @buttonTextDecoration;
+    text-transform: @buttonTextTransform;
+    font-weight: @buttonFontWeight;
     vertical-align: @buttonVerticalAlign;
-    cursor: @buttonCursor;
+    padding: @buttonPadding;
     border-color: @buttonBorderColor;
     border-style: @buttonBorderStyle;
     border-width: @buttonBorderWidth;
     *border: 0; // Remove the border to prevent IE7's black border on input:focus
     .border-radius(@buttonBorderRadius);
+    margin-bottom: @buttonMargin;
     .box-shadow(@buttonBoxShadow);
-    .gradient(@buttonBackground, @buttonGradientStart, @buttonGradientEnd);
-    color: @buttonTextColor;
-    text-decoration: @buttonTextDecoration;
-    text-transform: @buttonTextTransform;
-    font-weight: @buttonFontWeight;
     .box-sizing(border-box);
     // Hover/focus state
     &:hover,

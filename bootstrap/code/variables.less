@@ -7,7 +7,7 @@
 @codeTextColor:             #d14;
 @codeBorder:                1px solid @grayLight;
 @codePadding:               2px 4px;
-@codeBorderRadius:          @baseBorderRadius;
+@codeBorderRadius:          @borderRadius;
 
 // Pre variables
 @preBackground:             @grayLighter;
@@ -16,10 +16,9 @@
 @preTextColor:              @grayDark;
 @preBorder:                 1px solid rgba(0,0,0,.15);
 @preBorderIE:               1px solid @grayLight;
-@prePadding:                (@baseLineHeight - 1) / 2;
-@preMargin:                 0 0 @baseLineHeight / 2;
-@prePrettyMarginBottom:     @baseLineHeight;
-@preBorderRadius:           @baseBorderRadius;
+@prePadding:                (@lineHeight / 2 * 10);
+@preMargin:                 0 0 (@lineHeight / 2 * 10);
+@preBorderRadius:           @borderRadius;
 
 // Pre > code variables
 @preCodeBackground:         transparent;

@@ -31,11 +31,8 @@
 ////////////////////
 
 @pageWidth:                 960px;
-@pageMaxWidth:              96%;
-@baseBorderRadius:          5px;  
-@mobilePadding:             15px;
-@pagePxPadding:             20px;
-@pagePadding:               unit((100*(@pagePxPadding / @pageWidth)), ~"%");
+@borderRadius:              5px;  
+@pagePadding:               20px;
 @pageTabletPadding:         @pagePadding;
 @pageMobilePadding:         @pagePadding;
 
@@ -44,9 +41,9 @@
 ////////////////
 
 @fontFamily:                'sans-serif';
+@secondaryFontFamily:       @fontFamily;
 
 @fontSize:                  1.3;
-@baseFontSize:              unit((@fontSize * 10), px);
 
 @lineHeight:                1.8;
 @baseLineHeight:            unit((@lineHeight * 10), px);
@@ -59,5 +56,5 @@
 @textColor:                 @black;
 
 @primaryColor:              @blue;
-@secondaryColor:            @grayDarker; // #222222
+@secondaryColor:            @grayDarker;
 @tertiaryColor:             @gray;

@@ -21,7 +21,6 @@ code {
 
 // Blocks of code
 pre {
-    display: block;
     padding: @prePadding;
     margin: @preMargin;
     .font-size(@preFontSize);
@@ -35,11 +34,6 @@ pre {
     word-wrap: break-word;
     white-space: pre;
     white-space: pre-wrap;
-
-    // Make prettyprint styles more spaced out for readability
-    &.prettyprint {
-        margin-bottom: @prePrettyMarginBottom;
-    }
 
     // Account for some code outputs that place code tags in pre tags
     code {
