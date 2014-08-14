@@ -1,8 +1,10 @@
-//////////////////////////
-// LESS is more library //
-//////////////////////////
+////////////////////////////////////////////////////////////
+// Gradient with overload                                 //
+// If not presented with start and stop colors or         //
+// if start is equal to stop color just output background //
+////////////////////////////////////////////////////////////
 
-.gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+.gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) when (iscolor(@start)) and (iscolor(@stop)) and not (@start = @stop) {
     background: @color;
     background: -webkit-gradient(linear,
                                  left bottom,
@@ -20,7 +22,11 @@
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@stop),argb(@start)));
 }
 
-.horizontal-gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+.gradient (@color: #F5F5F5) when (default()) {
+    background: @color;
+}
+
+.horizontal-gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) when (iscolor(@start)) and (iscolor(@stop)) and not (@start = @stop) {
     background: @color;
     background: -webkit-gradient(linear,
                                  left top,
@@ -38,22 +44,8 @@
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@stop),argb(@start)));
 }
 
-.bw-gradient (@color: #F5F5F5, @start: 0, @stop: 255) {
+.horizontal-gradient (@color: #F5F5F5) when (default()) {
     background: @color;
-    background: -webkit-gradient(linear,
-                                 left bottom,
-                                 left top,
-                                 color-stop(0, rgb(@start,@start,@start)),
-                                 color-stop(1, rgb(@stop,@stop,@stop)));
-    background: -ms-linear-gradient(bottom,
-                                    rgb(@start,@start,@start) 0%,
-                                    rgb(@stop,@stop,@stop) 100%);
-    background: -moz-linear-gradient(center bottom,
-                                     rgb(@start,@start,@start) 0%,
-                                     rgb(@stop,@stop,@stop) 100%);
-    background: -o-linear-gradient(rgb(@stop,@stop,@stop),
-                                 rgb(@start,@start,@start));
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",rgb(@stop,@stop,@stop),rgb(@start,@start,@start)));
 }
 
 .opacity (@opacity: 0.5) {
@@ -61,7 +53,7 @@
     -khtml-opacity: @opacity;
     -webkit-opacity: @opacity;
     opacity: @opacity;
-    @opperc: @opacity * 100;
+    @opperc: (@opacity * 100);
     -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
     filter: ~"alpha(opacity=@{opperc})";
 }
@@ -107,11 +99,24 @@
     .transform(scale(@ratio));
 }
 
-.transition (@duration:0.2s, @ease:ease-out) {
+//////////////////////////////
+// Transition with overload //
+//////////////////////////////
+
+// Shorthand with all @duration @ease
+.transition (@duration:0.2s, @ease:ease-out) when (isnumber(@duration)) {
     -webkit-transition: all @duration @ease;
     -moz-transition: all @duration @ease;
     -o-transition: all @duration @ease;
     transition: all @duration @ease;
+}
+
+// Overload to allow for any value
+.transition (@arguments) when (default()) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
 }
 
 .box-shadow (@arguments) {
