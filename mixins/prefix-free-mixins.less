@@ -22,7 +22,7 @@
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@stop),argb(@start)));
 }
 
-.gradient (@color: #F5F5F5) when (default()) {
+.gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) when (default()) {
     background: @color;
 }
 
@@ -44,7 +44,7 @@
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@stop),argb(@start)));
 }
 
-.horizontal-gradient (@color: #F5F5F5) when (default()) {
+.horizontal-gradient (@color: #F5F5F5, @start: #EEE, @stop: #FFF) when (default()) {
     background: @color;
 }
 
