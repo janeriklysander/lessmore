@@ -13,7 +13,7 @@
 // Columns mixin, @columns is the only required parameter //
 ////////////////////////////////////////////////////////////
 
-.columns (@columns: 12, @gutter: 0, @padding: 0, @row: ~".row") {
+.columns (@columns: 12, @gutter: 0, @padding: 0, @row: ~".row", @mediaQuery: ~"all") {
     @columnCount: @columns;
 
     @nthColumn: (@columns + 1);
@@ -23,21 +23,7 @@
     @{row} {
         // Extend .clearfix to fix float issues
         &:extend(.clearfix all);
-        // Common styling for columns
-        > .col {
-            float: left;
-            padding: @padding;
-            margin-left: @gutter;
-            margin-top: @gutter;
-            .box-sizing();
-            .background-clip(padding-box);
-            // Remove gutter from first and nth column
-            &:first-child,
-            &@{nthSelector} {
-                margin-left: 0;
-            }
-        }
-        
+
         // Span-mixin that prints the right amount of spans (@columns)
         .span-mixin (@columns, @gutter, @padding, @columnCount) when (@columns > 0) {
             @class: ~".span-@{columns}";
@@ -74,8 +60,26 @@
                 margin-top: 0;
             }
         }
-
-        .span-mixin(@columns, @gutter, @padding, @columnCount);
-
+        
+        // Declare col with media query
+        @media @mediaQuery {
+            
+            // Common styling for columns
+            > .col {
+                float: left;
+                padding: @padding;
+                margin-left: @gutter;
+                margin-top: @gutter;
+                .box-sizing();
+                .background-clip(padding-box);
+                // Remove gutter from first and nth column
+                &:first-child,
+                &@{nthSelector} {
+                    margin-left: 0;
+                }
+            }
+            
+            .span-mixin(@columns, @gutter, @padding, @columnCount);
+        }
     }
 }
