@@ -13,7 +13,7 @@
 // Columns mixin, @columns is the only required parameter //
 ////////////////////////////////////////////////////////////
 
-.columns (@columns: 12, @gutter: 0, @padding: 0, @row: ~".row", @mediaQuery: ~"all") {
+.columns (@columns: 12, @gutter: 0, @padding: 0, @row: ~".row", @mediaQuery: 0){
     @columnCount: @columns;
 
     @nthColumn: (@columns + 1);
@@ -60,11 +60,28 @@
                 margin-top: 0;
             }
         }
-        
-        // Declare col with media query
-        @media @mediaQuery {
-            
-            // Common styling for columns
+
+        .col(@mediaQuery) when (isstring(@mediaQuery)) {
+            > .col {
+                @media @mediaQuery {
+                    float: left;
+                    padding: @padding;
+                    margin-left: @gutter;
+                    margin-top: @gutter;
+                    .box-sizing();
+                    .background-clip(padding-box);
+                    // Remove gutter from first and nth column
+                    &:first-child,
+                    &@{nthSelector} {
+                        margin-left: 0;
+                    }
+
+                    .span-mixin(@columns, @gutter, @padding, @columnCount);
+                }
+            }
+        }
+
+        .col(@mediaQuery) when (default()) {
             > .col {
                 float: left;
                 padding: @padding;
@@ -77,9 +94,11 @@
                 &@{nthSelector} {
                     margin-left: 0;
                 }
+
+                .span-mixin(@columns, @gutter, @padding, @columnCount);
             }
-            
-            .span-mixin(@columns, @gutter, @padding, @columnCount);
         }
+
+        .col(@mediaQuery);
     }
 }
