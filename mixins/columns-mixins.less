@@ -62,8 +62,8 @@
         }
 
         .col(@mediaQuery) when (isstring(@mediaQuery)) {
-            > .col {
-                @media @mediaQuery {
+            @media @mediaQuery {
+                > .col {
                     float: left;
                     padding: @padding;
                     margin-left: @gutter;
@@ -76,8 +76,8 @@
                         margin-left: 0;
                     }
 
-                    .span-mixin(@columns, @gutter, @padding, @columnCount);
                 }
+                .span-mixin(@columns, @gutter, @padding, @columnCount);
             }
         }
 
@@ -95,8 +95,8 @@
                     margin-left: 0;
                 }
 
-                .span-mixin(@columns, @gutter, @padding, @columnCount);
             }
+            .span-mixin(@columns, @gutter, @padding, @columnCount);
         }
 
         .col(@mediaQuery);
